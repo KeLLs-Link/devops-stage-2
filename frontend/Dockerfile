@@ -1,27 +1,15 @@
-# Frontend Dockerfile
-FROM node:16 AS build
+# Official Node.js runtime as a parent image
+FROM node:20.15.0-alpine
 
-# Set working directory
+# Set the working directory in the container
 WORKDIR /app
 
-# Install dependencies
-COPY package*.json ./
+# Copy the rest of the application code
+COPY . /app
 RUN npm install
 
-# Copy application files
-COPY . .
 
-# Build the frontend application
-RUN npm run build
+# Make port 80 available to the world outside this container
+EXPOSE 5173
 
-# Production stage
-FROM nginx:latest
-
-# Copy built files to nginx
-COPY --from=build /app/dist /usr/share/nginx/html
-
-# Expose port
-EXPOSE 80
-
-# Start nginx
-CMD ["nginx", "-g", "daemon off;"]
+CMD [ "npm", "run", "dev", "--", "--host" ]
