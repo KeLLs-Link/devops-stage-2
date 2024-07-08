@@ -18,3 +18,18 @@ To get started with this template, please follow the instructions in the respect
 - [Frontend README](./frontend/README.md)
 - [Backend README](./backend/README.md)
 
+**Dockerfiles:**
+
+- Defines the environment and dependencies for both the frontend and backend of the appliation.
+![image](./screenshots/frontend.png)
+![image](./screenshots/backend.png)
+
+**Docker Compose:**
+
+- Simplifies the process of starting, stopping,managing networking between different services so the application can communicate with each other.
+
+![imae](./screenshots/dockercompose.png)
+
+
+
+
