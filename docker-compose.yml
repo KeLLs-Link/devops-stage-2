@@ -7,8 +7,7 @@ services:
     ports:
       - "8090:81"
       - "443:443"
-    environment:
-      DB_SQLITE_FILE: "/data/database.sqlite"
+      
     volumes:
       - ./data:/data
       - ./letsencrypt:/etc/letsencrypt
